@@ -28,7 +28,7 @@ Aplicação para a gestão e organização de participantes em eventos.
 
 ```bash
 # Faça o clone do repositório
-  git clone https://github.com/RenanFachin/RS_NLW_API_Pass-in.git
+  git clone https://github.com/RenanFachin/RS_NLW_API_pass-in.git
 
 # Instale as depêndencias
   npm i
