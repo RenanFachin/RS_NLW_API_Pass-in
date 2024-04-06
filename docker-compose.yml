@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  pass-in-api:
+    image: bitnami/postgresql:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=pass-in-api
+    volumes:
+      - pass-in-api_data:/bitnami/postgresql
+
+volumes:
+  pass-in-api_data:
