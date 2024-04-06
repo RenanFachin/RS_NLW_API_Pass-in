@@ -33,6 +33,24 @@ Aplicação para a gestão e organização de participantes em eventos.
 # Instale as depêndencias
   npm i
 
+# Copie o arquivo .env.example para um arquivo .env
+  cp .env.example .env
+
+# Rodando containers para criação do db
+  docker compose up
+
+# Criar as tabelas no banco de dados
+  npx prisma migrate dev
+
 # Executando o projeto no ambiente de desenvolvimento
   npm run dev
 ```
+
+### 📘 Ferramentas/Bibliotecas utilizadas
+- Back-end
+  - `NodeJS`
+  - `Fastify`
+  - `Docker`
+  - `Postgresql`
+  - `Typescript`
+  - `Prisma ORM`
