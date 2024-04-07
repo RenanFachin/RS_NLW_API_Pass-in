@@ -6,3 +6,24 @@ Content-Type: application/json
   "details": "Um evento para programadores",
   "maximumAttendees": 235
 }
+
+###
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+  "title": "Novo Evento",
+  "details": null,
+  "maximumAttendees": 1
+}
+
+
+###
+
+POST http://localhost:3333/events/880617b8-6e60-4841-8912-bb861d1aad09/attendees
+Content-Type: application/json
+
+{
+  "name": "Renan Fachin",
+  "email": "renan2@email.com"
+}
