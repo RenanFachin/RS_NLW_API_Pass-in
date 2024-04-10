@@ -3,6 +3,8 @@ import { serializerCompiler, validatorCompiler, jsonSchemaTransform } from 'fast
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUI from '@fastify/swagger-ui'
 
+import fastifyCors from '@fastify/cors'
+
 import { createEvent } from './routes/create-event'
 import { registerForEvent } from './routes/register-for-event'
 import { getEvent } from './routes/get-event'
@@ -12,6 +14,10 @@ import { getEventAttendees } from './routes/get-event-attendees'
 import { errorHandler } from './error-handler'
 
 const app = fastify()
+
+app.register(fastifyCors, {
+  origin: '*'
+})
 
 // documentação c/ swagger
 app.register(fastifySwagger, {
@@ -47,6 +53,6 @@ app.register(getEventAttendees)
 // Tratamento de erros
 app.setErrorHandler(errorHandler)
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
   console.log('🛸 HTTP Server Running!')
 })
