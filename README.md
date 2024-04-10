@@ -45,11 +45,11 @@ Aplicação para a gestão e organização de participantes em eventos.
 # Popular o banco de dados
   npx prisma db seed
 
-# Acessando a documentação do projeto
-  http://localhost:3333/docs
-
 # Executando o projeto no ambiente de desenvolvimento
   npm run dev
+  
+# Acessando a documentação do projeto
+  http://localhost:3333/docs
 ```
 
 ### 📘 Ferramentas/Bibliotecas utilizadas
