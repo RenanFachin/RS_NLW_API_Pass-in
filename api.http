@@ -16,13 +16,17 @@ Content-Type: application/json
   "email": "renan2@email.com"
 }
 
-
 ###
 GET http://localhost:3333/events/ddbd2816-073b-4919-9774-dec0628f5ca2
-
 
 ###
 GET http://localhost:3333/attendees/1/badge
 
 ###
 GET http://localhost:3333/attendees/2/check-in
+
+###
+GET http://localhost:3333/events/ddbd2816-073b-4919-9774-dec0628f5ca2/attendees
+
+###
+GET http://localhost:3333/events/ddbd2816-073b-4919-9774-dec0628f5ca2/attendees?query=Renan
