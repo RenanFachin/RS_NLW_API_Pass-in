@@ -24,7 +24,115 @@ Aplicação para a gestão e organização de participantes em eventos.
 - [x]  O check-in no evento será realizado através de um QRCode;
 
 
+## HTTP
+
+### POST `/events`
+
+Create an event.
+
+#### Request body
+
+```json
+{
+  "title": "Unite Summit",
+  "details": "Um evento para programadores",
+  "maximumAttendees": 235
+}
+```
+
+#### Response body
+
+```json
+{
+  "eventId": "683d763a-5ce2-489b-a18a-19faedce9b45"
+}
+```
+
+### POST `/events/:eventId/attendees`
+
+Register an attendee
+
+#### Request body
+
+```json
+{
+  "name": "John Doe",
+  "email": "johndoe@email.com"
+}
+```
+
+#### Response body
+
+```json
+{
+  "attendeeId": 3
+}
+```
+
+
+### GET `/events/:eventId`
+
+Get an event
+
+#### Response body
+
+```json
+{
+  "event": {
+    "id": "683d763a-5ce2-489b-a18a-19faedce9b45",
+    "title": "Unite Summit",
+    "slug": "unite-summit",
+    "details": "Um evento para programadores",
+    "maximumAttendees": 235,
+    "attendeesAmount": 1
+  }
+}
+```
+
+### GET `/attendees/:attendeeId/badge`
+
+Get an attendee badge
+
+#### Response body
+
+```json
+{
+  "badge": {
+    "name": "John Doe",
+    "email": "johndoe@email.com",
+    "eventTitle": "Unite Summit",
+    "checkInURL": "http://localhost:3333/attendees/3/check-in"
+  }
+}
+```
+
+### GET `/attendees/:attendeeId/check-in`
+
+Check-in an attendee
+
+
+### GET `/events/:eventId/attendees`
+
+Get an event attendees
+
+#### Response body
+
+```json
+{
+  "attenddes": [
+    {
+      "id": 3,
+      "name": "John Doe",
+      "email": "johndoe@email.com",
+      "createdAt": "2024-04-10T17:54:16.808Z",
+      "checkedInAt": "2024-04-10T17:54:53.650Z"
+    }
+  ]
+}
+```
+
 ## Instalação
+
 
 ```bash
 # Faça o clone do repositório
