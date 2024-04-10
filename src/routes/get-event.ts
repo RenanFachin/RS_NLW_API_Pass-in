@@ -9,10 +9,10 @@ export async function getEvent(app: FastifyInstance) {
     .get('/events/:eventId', {
       schema: {
         params: z.object({
-          eventId: z.string().uuid()
+          eventId: z.string().uuid(),
         }),
         response: {
-          200: {
+          200: z.object({
             event: z.object({
               id: z.string().uuid(),
               title: z.string(),
@@ -21,12 +21,11 @@ export async function getEvent(app: FastifyInstance) {
               maximumAttendees: z.number().int().nullable(),
               attendeesAmount: z.number().int(),
             })
-          }
-        }
+          }),
+        },
       }
     }, async (request, reply) => {
       const { eventId } = request.params
-
 
       const event = await prisma.event.findUnique({
         select: {
@@ -35,15 +34,14 @@ export async function getEvent(app: FastifyInstance) {
           slug: true,
           details: true,
           maximumAttendees: true,
-          // retorndando a quantidade de pessoas cadastradas no evento
           _count: {
             select: {
-              attendees: true
+              attendees: true,
             }
-          }
+          },
         },
         where: {
-          id: eventId
+          id: eventId,
         }
       })
 
@@ -52,15 +50,14 @@ export async function getEvent(app: FastifyInstance) {
       }
 
       return reply.send({
-        // "reescrevendo" o objeto event para não mandar _count para o front-end
         event: {
           id: event.id,
           title: event.title,
           slug: event.slug,
           details: event.details,
           maximumAttendees: event.maximumAttendees,
-          attendeesAmount: event._count.attendees
-        }
+          attendeesAmount: event._count.attendees,
+        },
       })
     })
 }
