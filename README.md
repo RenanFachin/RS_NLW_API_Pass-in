@@ -6,22 +6,22 @@ Aplicação para a gestão e organização de participantes em eventos.
 
 ### Requisitos funcionais
 
-- [ ]  O organizador deve poder cadastrar um novo evento;
-- [ ]  O organizador deve poder visualizar dados de um evento;
-- [ ]  O organizador deve poser visualizar a lista de participantes;
-- [ ]  O participante deve poder se inscrever em um evento;
-- [ ]  O participante deve poder visualizar seu crachá de inscrição;
-- [ ]  O participante deve poder realizar check-in no evento;
+- [x]  O organizador deve poder cadastrar um novo evento;
+- [x]  O organizador deve poder visualizar dados de um evento;
+- [x]  O organizador deve poser visualizar a lista de participantes;
+- [x]  O participante deve poder se inscrever em um evento;
+- [x]  O participante deve poder visualizar seu crachá de inscrição;
+- [x]  O participante deve poder realizar check-in no evento;
 
 ### Regras de negócio
 
-- [ ]  O participante só pode se inscrever em um evento uma única vez;
-- [ ]  O participante só pode se inscrever em eventos com vagas disponíveis;
-- [ ]  O participante só pode realizar check-in em um evento uma única vez;
+- [x]  O participante só pode se inscrever em um evento uma única vez;
+- [x]  O participante só pode se inscrever em eventos com vagas disponíveis;
+- [x]  O participante só pode realizar check-in em um evento uma única vez;
 
 ### Requisitos não-funcionais
 
-- [ ]  O check-in no evento será realizado através de um QRCode;
+- [x]  O check-in no evento será realizado através de um QRCode;
 
 
 ## Instalação
@@ -41,6 +41,12 @@ Aplicação para a gestão e organização de participantes em eventos.
 
 # Criar as tabelas no banco de dados
   npx prisma migrate dev
+
+# Popular o banco de dados
+  npx prisma db seed
+
+# Acessando a documentação do projeto
+  http://localhost:3333/docs
 
 # Executando o projeto no ambiente de desenvolvimento
   npm run dev
